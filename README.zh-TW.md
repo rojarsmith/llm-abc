@@ -121,6 +121,24 @@ for /f %i in ('curl -s -X POST http://127.0.0.1:8000/chat/jobs -H "Content-Type:
 curl -s "http://127.0.0.1:8000/chat/jobs/%JOB_ID%"
 ```
 
+## 訓練 Tiny Model
+
+執行命令列訓練 smoke test：
+
+```cmd
+python scripts\smoke_train.py --max-steps 80 --eval-every 10
+```
+
+或建立 API 訓練 job：
+
+```cmd
+for /f %i in ('curl -s -X POST http://127.0.0.1:8000/training/jobs -H "Content-Type: application/json" -d "{\"dataset_id\":\"every-effort\",\"base_model_id\":\"random-tiny-byte\",\"output_model_id\":\"trained-tiny-byte\",\"max_steps\":80,\"eval_every\":10,\"load_when_complete\":true}" ^| python -c "import sys,json; print(json.load(sys.stdin)['job_id'])"') do set TRAINING_JOB_ID=%i
+
+curl -s "http://127.0.0.1:8000/training/jobs/%TRAINING_JOB_ID%"
+```
+
+job 成功後，可以用同一個 `/chat` prompt 比較 `random-tiny-byte` 和 `trained-tiny-byte`。
+
 ## 第一階段學習結論
 
 這一版要先確認三件事：
@@ -135,5 +153,7 @@ curl -s "http://127.0.0.1:8000/chat/jobs/%JOB_ID%"
 
 - [Learning experience checklist](docs/learning-experience.md)
 - [`smoke_chat.py` explained](docs/smoke-chat.md)
+- [Minimal training loop](docs/training-loop.md)
 - [繁體中文學習驗證清單](docs/learning-experience.zh-TW.md)
 - [`smoke_chat.py` 繁體中文說明](docs/smoke-chat.zh-TW.md)
+- [最小訓練閉環](docs/training-loop.zh-TW.md)

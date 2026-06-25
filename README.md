@@ -121,6 +121,24 @@ for /f %i in ('curl -s -X POST http://127.0.0.1:8000/chat/jobs -H "Content-Type:
 curl -s "http://127.0.0.1:8000/chat/jobs/%JOB_ID%"
 ```
 
+## Train the Tiny Model
+
+Run the command-line training smoke test:
+
+```cmd
+python scripts\smoke_train.py --max-steps 80 --eval-every 10
+```
+
+Or start an API training job:
+
+```cmd
+for /f %i in ('curl -s -X POST http://127.0.0.1:8000/training/jobs -H "Content-Type: application/json" -d "{\"dataset_id\":\"every-effort\",\"base_model_id\":\"random-tiny-byte\",\"output_model_id\":\"trained-tiny-byte\",\"max_steps\":80,\"eval_every\":10,\"load_when_complete\":true}" ^| python -c "import sys,json; print(json.load(sys.stdin)['job_id'])"') do set TRAINING_JOB_ID=%i
+
+curl -s "http://127.0.0.1:8000/training/jobs/%TRAINING_JOB_ID%"
+```
+
+After the job succeeds, compare `random-tiny-byte` and `trained-tiny-byte` with the same `/chat` prompt.
+
 ## First-Stage Learning Conclusion
 
 This version should help you confirm three things:
@@ -135,5 +153,7 @@ The recommended next milestone is `training/jobs`: train a tiny model on the sho
 
 - [Learning experience checklist](docs/learning-experience.md)
 - [`smoke_chat.py` explained](docs/smoke-chat.md)
+- [Minimal training loop](docs/training-loop.md)
 - [繁體中文學習驗證清單](docs/learning-experience.zh-TW.md)
 - [`smoke_chat.py` 繁體中文說明](docs/smoke-chat.zh-TW.md)
+- [最小訓練閉環](docs/training-loop.zh-TW.md)

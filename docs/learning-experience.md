@@ -4,7 +4,7 @@
 
 This checklist validates the first-stage learning experience. The goal is not to get a smart answer yet. The goal is to confirm that a model can generate tokens, while an untrained model has not learned language.
 
-For the code-level walkthrough, read [`smoke_chat.py` explained](smoke-chat.md).
+For the code-level walkthrough, read [`smoke_chat.py` explained](smoke-chat.md). For the next training loop, read [Minimal training loop](training-loop.md).
 
 ## 0. Use the Project Virtual Environment
 
@@ -155,4 +155,4 @@ The completion criteria are not that the answer looks like ChatGPT. They are:
 - Both synchronous and asynchronous entry points work.
 - The learner can clearly see the untrained baseline.
 
-The next stage is training: train the tiny model on a small dataset, save a checkpoint, then return to `/chat` and compare outputs before and after training.
+The next stage is now available: train the tiny model on a small dataset, save a checkpoint, then return to `/chat` and compare outputs before and after training. See [Minimal training loop](training-loop.md).
