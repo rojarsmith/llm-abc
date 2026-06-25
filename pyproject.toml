@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llm-abc"
+version = "0.1.0"
+description = "A minimal educational backend for building a tiny ChatGPT-like LLM from scratch."
+requires-python = ">=3.11,<3.14"
+dependencies = [
+  "numpy>=1.26",
+  "torch>=2.0",
+]
+
+[project.optional-dependencies]
+api = [
+  "fastapi>=0.115",
+  "uvicorn[standard]>=0.30",
+  "pydantic>=2.7",
+  "tiktoken>=0.7",
+]
+
+[tool.setuptools.packages.find]
+where = ["packages/llm_core"]
