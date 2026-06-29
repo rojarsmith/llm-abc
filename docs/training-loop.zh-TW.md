@@ -29,6 +29,8 @@
 python scripts\smoke_train.py --max-steps 80 --eval-every 10
 ```
 
+如果要看程式流程說明，請讀 [`smoke_train.py` 說明](smoke-train.zh-TW.md)。
+
 應觀察：
 
 - `before training` 看起來像隨機輸出。

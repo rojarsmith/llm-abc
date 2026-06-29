@@ -29,6 +29,8 @@ Use Windows Command Prompt with `.venv` activated:
 python scripts\smoke_train.py --max-steps 80 --eval-every 10
 ```
 
+For a code-level walkthrough, read [`smoke_train.py` explained](smoke-train.md).
+
 Expected observations:
 
 - `before training` looks random.

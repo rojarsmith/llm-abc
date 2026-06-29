@@ -154,6 +154,8 @@ job 成功後，可以用同一個 `/chat` prompt 比較 `random-tiny-byte` 和 
 - [Learning experience checklist](docs/learning-experience.md)
 - [`smoke_chat.py` explained](docs/smoke-chat.md)
 - [Minimal training loop](docs/training-loop.md)
+- [`smoke_train.py` explained](docs/smoke-train.md)
+- [`smoke_train.py` 繁體中文說明](docs/smoke-train.zh-TW.md)
 - [繁體中文學習驗證清單](docs/learning-experience.zh-TW.md)
 - [`smoke_chat.py` 繁體中文說明](docs/smoke-chat.zh-TW.md)
 - [最小訓練閉環](docs/training-loop.zh-TW.md)
