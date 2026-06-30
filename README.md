@@ -18,6 +18,7 @@ This first version builds the smallest usable backend skeleton:
 
 - `packages/llm_core`: GPT model, tokenizer, and text generation logic.
 - `apps/api`: FastAPI chat API with synchronous and asynchronous job endpoints.
+- `apps/web`: Next.js learning console for chat, training, checkpoints, and comparison.
 - `scripts/smoke_chat.py`: A no-server smoke test for the model output.
 - `docs/learning-experience.md`: A guided checklist for validating the first learning loop.
 
@@ -139,6 +140,18 @@ curl -s "http://127.0.0.1:8000/training/jobs/%TRAINING_JOB_ID%"
 
 After the job succeeds, compare `random-tiny-byte` and `trained-tiny-byte` with the same `/chat` prompt.
 
+## Start the Web Learning Console
+
+Keep the API running, then open a second Windows Command Prompt:
+
+```cmd
+cd apps\web
+npm install
+npm run dev
+```
+
+Open `http://127.0.0.1:3000` and use the console to chat, train, load checkpoints, and compare model outputs.
+
 ## First-Stage Learning Conclusion
 
 This version should help you confirm three things:
@@ -155,7 +168,9 @@ The recommended next milestone is `training/jobs`: train a tiny model on the sho
 - [`smoke_chat.py` explained](docs/smoke-chat.md)
 - [Minimal training loop](docs/training-loop.md)
 - [`smoke_train.py` explained](docs/smoke-train.md)
+- [Minimal Web UI learning console](docs/web-console.md)
 - [`smoke_train.py` 繁體中文說明](docs/smoke-train.zh-TW.md)
 - [繁體中文學習驗證清單](docs/learning-experience.zh-TW.md)
 - [`smoke_chat.py` 繁體中文說明](docs/smoke-chat.zh-TW.md)
 - [最小訓練閉環](docs/training-loop.zh-TW.md)
+- [最小 Web UI 學習控制台](docs/web-console.zh-TW.md)

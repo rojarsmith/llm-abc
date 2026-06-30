@@ -13,3 +13,8 @@ models/downloaded/
 *.pth
 *.pt
 *.safetensors
+node_modules/
+.next/
+out/
+.env*.local
+npm-debug.log*

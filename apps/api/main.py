@@ -8,6 +8,7 @@ from typing import Literal
 from uuid import uuid4
 
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
 from apps.api.services.chat_service import ChatRequestData, ChatService
@@ -18,6 +19,13 @@ app = FastAPI(
     title="LLM ABC API",
     version="0.1.0",
     description="A minimal educational API for a tiny ChatGPT-like model.",
+)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origin_regex=r"https?://(localhost|127\.0\.0\.1):\d+",
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 chat_service = ChatService()

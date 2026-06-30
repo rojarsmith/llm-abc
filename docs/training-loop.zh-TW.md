@@ -127,4 +127,4 @@ curl -s -X POST http://127.0.0.1:8000/models/load ^
 3. tiny dataset 會讓 tiny model 很快 overfit。
 4. full checkpoint 是完整的訓練後模型狀態，讓 API 之後可以重用訓練後權重。
 
-下一階段可以把這個閉環包成 Web UI。
+下一階段已在 [最小 Web UI 學習控制台](web-console.zh-TW.md) 中提供。

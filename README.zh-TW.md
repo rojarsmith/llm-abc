@@ -18,6 +18,7 @@ LLM ABC 是一個教學型專案，用來從零開始建立一個最小版的 Ch
 
 - `packages/llm_core`：GPT 模型、tokenizer、文字生成邏輯。
 - `apps/api`：FastAPI chat API，包含同步與非同步 job 端點。
+- `apps/web`：Next.js 學習控制台，用於聊天、訓練、checkpoint 與模型比較。
 - `scripts/smoke_chat.py`：不啟動伺服器也能檢查模型輸出的 smoke test。
 - `docs/learning-experience.md`：第一階段學習閉環的英文驗證清單。
 
@@ -139,6 +140,18 @@ curl -s "http://127.0.0.1:8000/training/jobs/%TRAINING_JOB_ID%"
 
 job 成功後，可以用同一個 `/chat` prompt 比較 `random-tiny-byte` 和 `trained-tiny-byte`。
 
+## 啟動 Web 學習控制台
+
+保持 API 執行，然後開第二個 Windows Command Prompt：
+
+```cmd
+cd apps\web
+npm install
+npm run dev
+```
+
+開啟 `http://127.0.0.1:3000`，就可以用控制台聊天、訓練、載入 checkpoint、比較模型輸出。
+
 ## 第一階段學習結論
 
 這一版要先確認三件事：
@@ -155,7 +168,9 @@ job 成功後，可以用同一個 `/chat` prompt 比較 `random-tiny-byte` 和 
 - [`smoke_chat.py` explained](docs/smoke-chat.md)
 - [Minimal training loop](docs/training-loop.md)
 - [`smoke_train.py` explained](docs/smoke-train.md)
+- [Minimal Web UI learning console](docs/web-console.md)
 - [`smoke_train.py` 繁體中文說明](docs/smoke-train.zh-TW.md)
 - [繁體中文學習驗證清單](docs/learning-experience.zh-TW.md)
 - [`smoke_chat.py` 繁體中文說明](docs/smoke-chat.zh-TW.md)
 - [最小訓練閉環](docs/training-loop.zh-TW.md)
+- [最小 Web UI 學習控制台](docs/web-console.zh-TW.md)

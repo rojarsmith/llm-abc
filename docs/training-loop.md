@@ -127,4 +127,4 @@ This stage demonstrates four ideas:
 3. Tiny datasets make tiny models overfit quickly.
 4. A full checkpoint is a complete trained model state that lets the API reuse trained weights later.
 
-The next stage can build a Web UI around this loop.
+The next stage is available in [Minimal Web UI learning console](web-console.md).
